@@ -16,3 +16,25 @@ import sys, os, arcpy
 # Set input variables (Hard-wired...i.e. not relative paths)
 inputFile = '../Data/ARGOSData/1997dg.txt'
 outputFC = '../Scratch/ARGOStrack.shp'
+
+## Construct a while loop to iterate through all lines in the datafile
+# Open the ARGOS data file for reading
+inputFileObj = open(inputFile,'r')
+
+# get the first line of data so we can use while loo
+lineString = inputFileObj.readline()
+while lineString:
+    #get the next line
+    lineString = inputFileObj.readline()
+
+    # Set code to run only if the line contains the string "Date: "
+    if ("Date :" in lineString):
+        #print(lineString)
+
+        #split the line into a list (called lineData in lab doc)
+        lineList = lineString.split() # no argument = split by space
+        print (lineList)
+
+        #extract attributes from datum header line
+        tagID = lineList[0]
+        break
