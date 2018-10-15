@@ -33,8 +33,27 @@ while lineString:
 
         #split the line into a list (called lineData in lab doc)
         lineList = lineString.split() # no argument = split by space
-        print (lineList)
+        # print (lineList)
 
         #extract attributes from datum header line
         tagID = lineList[0]
-        break
+
+        #get the next line
+        line2String = inputFileObj.readline()
+
+        line2Data = line2String.split()
+
+        #print (line2Data)
+
+        #get attributes from 2nd line
+        obsLat = line2Data[2]
+        obsLon = line2Data[5]
+
+        print (tagID, obsLat, obsLon)
+        #break
+
+    #move to the next line so the while loop progresses
+    lineString = inputFileObj.readline()
+
+#close the file object
+inputFileObj.close()
