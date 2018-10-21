@@ -37,6 +37,9 @@ while lineString:
 
         #extract attributes from datum header line
         tagID = lineList[0]
+        obsDate = lineList[3]
+        obsTime = lineList[4]
+        LocClass = lineList[7]
 
         #get the next line
         line2String = inputFileObj.readline()
@@ -49,7 +52,8 @@ while lineString:
         obsLat = line2Data[2]
         obsLon = line2Data[5]
 
-        print (tagID, obsLat, obsLon)
+
+        print (tagID, obsDate, obsTime, LocClass, obsLat, obsLon)
         #break
 
     #move to the next line so the while loop progresses
